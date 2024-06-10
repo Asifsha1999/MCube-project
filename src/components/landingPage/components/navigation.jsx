@@ -3,7 +3,7 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 export const Navigation = (props) => {
   return (
-    <nav id="menu" className="navbar navbar-default navbar-fixed-top">
+    <nav id="menu" className="navbar navbar-default navbar-fixed-top mb-4">
       <div className="container-fluid">
         <div className="navbar-header">
           <button
@@ -18,7 +18,11 @@ export const Navigation = (props) => {
             <span className="icon-bar"></span>{" "}
             <span className="icon-bar"></span>{" "}
           </button>
-          <img src='/img/logo.png' alt="Logo" className=" page-scroll brandname" href="#page-top" />
+
+          <Link to="/" className="navbar-brand">
+            <img src="/img/logo.png" alt="Logo" className=" page-scroll brandname" href="home" />
+          </Link>
+
         </div>
 
         <div
@@ -27,28 +31,29 @@ export const Navigation = (props) => {
         >
           <ul className="nav navbar-nav navbar-right">
             <li  >
-            <Link to="/home">Home</Link>
+            <Link  to="/">Home</Link>
             </li>
             <li>
-            <Link to="/about">About Us</Link> 
+            <Link  to="/aboutUs">About Us</Link> 
             </li>
             <li>
-              <a href="#services" className="page-scroll">
-                Services
-              </a>
+            <Link  to="/faq">FAQ</Link>
             </li>
             <li>
-            <Link to="/gallery">Gallery</Link>
+            <Link  to="/services">Services</Link> 
             </li>
             <li>
+            <Link  to="/gallery">Gallery</Link>
+            </li>
+            {/* <li>
             <Link to="/testimonials">Testimonials</Link>
-            </li>
+            </li> */}
             <li>
-              <a href="#contact" className="page-scroll">
-                Contact Us
-              </a>
+            <Link  to="/contact">Contact</Link>
             </li>
-          </ul>
+
+            
+            </ul>
         </div>
       </div>
     </nav>

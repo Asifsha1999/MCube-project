@@ -14,7 +14,7 @@ export const Testimonials = ({data=[]}) => {
                   <div className="testimonial">
                     <div className="testimonial-image">
                       {" "}
-                      <img src={d.img} alt="" />{" "}
+                      <img src={d.img} alt="sample" />{" "}
                     </div>
                     <div className="testimonial-content">
                       <p>"{d.text}"</p>

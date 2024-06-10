@@ -6,14 +6,16 @@ import { News } from "./components/landingPage/components/news";
 import { About } from "./components/landingPage/components/about";
 import { Services } from "./components/landingPage/components/services";
 import { Gallery } from "./components/landingPage/components/gallery";
-import { Testimonials } from "./components/landingPage/components/testimonials";
-import { Team } from "./components/landingPage/components/Team";
 import { Contact } from "./components/landingPage/components/contact";
 import JsonData from "./data/data.json";
 import SmoothScroll from "smooth-scroll";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, useHistory } from 'react-router-dom';
 import "./App.css";
 import Layout from "./components/landingPage/Layout";
+import AboutUs from "./components/aboutUs/aboutUs";
+import FAQ from "./components/FAQ/Faq";
+
+
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
   speed: 1000,
@@ -22,26 +24,49 @@ export const scroll = new SmoothScroll('a[href*="#"]', {
 
 const App = () => {
   const [landingPageData, setLandingPageData] = useState({});
+  const history = useHistory();
   useEffect(() => {
     setLandingPageData(JsonData);
+
   }, []);
+
+//   useEffect(() => {
+//    if (window.location.pathname === '/') {
+//       console.log("here")
+//      history.push('/home');
+//    }
+//  }, [history]);
 
   return (
     <div>
      <Router>
      <Navigation />
             <Switch>
-                  <Route path="/home" >
+                  <Route exact path="/" >
                      <Layout />
                   </Route>
                   
-                  <Route path="/testimonials" >
-                     <Testimonials data={landingPageData.Testimonials} />
+                  <Route path="/aboutus" >
+                     <AboutUs data={landingPageData.AboutUs} />
+                  </Route>
+
+                  <Route path="/services" >
+                     <Services data={landingPageData.Services} />
                   </Route>
 
                   <Route path="/gallery" >
                      <Gallery data={landingPageData.Gallery} />
                   </Route>
+
+                  <Route path="/faq" >
+                     <FAQ data={landingPageData.faq} />
+                  </Route>
+
+                  <Route path="/contact" >
+                     <Contact data={landingPageData.Contact} />
+                  </Route>
+
+
                 </Switch>
             </Router>
     

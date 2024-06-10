@@ -1,14 +1,14 @@
 import { useState } from "react";
-import emailjs from "emailjs-com";
 import React from "react";
+import { FaWhatsapp } from "react-icons/fa";
 
-const initialState = {
-  name: "",
-  email: "",
-  message: "",
-};
+import { PHONE_NUMBER } from "../../../contant";
+
+
+const initialState = {name:"", subject:"",  message :""}
+
 export const Contact = (props) => {
-  const [{ name, email, message }, setState] = useState(initialState);
+  const [{ name, subject,  message }, setState] = useState(initialState);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,23 +17,16 @@ export const Contact = (props) => {
   const clearState = () => setState({ ...initialState });
   
   
-  const handleSubmit = (e) => {
+  const handleSubmit =  (e) => {
     e.preventDefault();
-    console.log(name, email, message);
+    // Validation (if any)
+
+    const formattedMessage = `Name: ${name}\nSubject: ${subject}\n\nMessage: ${message}`;
+    const encodedMessage = encodeURIComponent(formattedMessage); // ?
     
-    {/* replace below with your own Service ID, Template ID and Public Key from your EmailJS account */ }
-    
-    emailjs
-      .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", e.target, "YOUR_PUBLIC_KEY")
-      .then(
-        (result) => {
-          console.log(result.text);
-          clearState();
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+    const waAPI = `https://api.whatsapp.com/send?phone=${PHONE_NUMBER}&text=${encodedMessage}`;
+
+    window.open(waAPI, '_blank');
   };
   return (
     <div>
@@ -67,11 +60,11 @@ export const Contact = (props) => {
                   <div className="col-md-6">
                     <div className="form-group">
                       <input
-                        type="email"
-                        id="email"
-                        name="email"
+                        type="text"
+                        id="subject"
+                        name="subject"
                         className="form-control"
-                        placeholder="Email"
+                        placeholder="Subject"
                         required
                         onChange={handleChange}
                       />
@@ -93,7 +86,7 @@ export const Contact = (props) => {
                 </div>
                 <div id="success"></div>
                 <button type="submit" className="btn btn-custom btn-lg">
-                  Send Message
+                 <FaWhatsapp /> Send Message
                 </button>
               </form>
             </div>
