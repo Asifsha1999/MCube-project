@@ -1,6 +1,4 @@
 import React from "react";
-import { TypeAnimation } from 'react-type-animation';
-import { Services } from "./services";
 
 export const Header = (props) => {
   return (
