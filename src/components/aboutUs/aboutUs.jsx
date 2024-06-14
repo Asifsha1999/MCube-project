@@ -9,7 +9,7 @@ const AboutUs = () => {
       <section style={styles.section}>
         <h2>Our Company</h2>
         <p>
-          At XYZ Construction, we are committed to delivering top-quality construction services
+          At MCube Construction, we are committed to delivering top-quality construction services
           to our clients. With over 20 years of experience in the industry, we have established
           ourselves as a trusted name in residential and commercial construction.
         </p>
@@ -32,7 +32,7 @@ const AboutUs = () => {
         </p>
       </section>
       <footer style={styles.footer}>
-        <p>&copy; 2024 XYZ Construction. All rights reserved.</p>
+        <p>&copy; 2024 MCube Designs. All rights reserved.</p>
       </footer>
     </div>
   );
