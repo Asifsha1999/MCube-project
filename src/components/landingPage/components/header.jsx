@@ -1,6 +1,6 @@
 import React from "react";
 import { TypeAnimation } from 'react-type-animation';
-
+import { Services } from "./services";
 
 export const Header = (props) => {
   return (
@@ -10,7 +10,7 @@ export const Header = (props) => {
           <div className="container">
             <div className="row">
               <div className="col-md-8 col-md-offset-2 intro-text">
-                <TypeAnimation
+                {/* <TypeAnimation
                   sequence={[
                     "Build.",
                     500,
@@ -27,11 +27,11 @@ export const Header = (props) => {
                   ]}
                   style={{ fontSize: "4em" , fontWeight:700, color: "white" , fontFamily:"Montserrat" }}
                   repeat={Infinity}
-                />
+                /> */}
                 
                 <p>{props.data ? props.data.paragraph : "Loading"}</p>
                 <a
-                  href="#features"
+                  href="#Services"
                   className="btn btn-custom btn-lg page-scroll"
                 >
                   Learn More
