@@ -117,6 +117,7 @@ export const Contact = (props) => {
                 {props.data ? props.data.email : "loading"}
               </p>
             </div>
+            
           </div>
           <div className="col-md-12">
             <div className="row">
